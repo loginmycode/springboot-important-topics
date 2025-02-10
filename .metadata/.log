@@ -1471,3 +1471,41 @@ Caused by: org.eclipse.jdt.internal.compiler.problem.AbortCompilation:
 	at org.springframework.boot.configurationprocessor.ConfigurationMetadataAnnotationProcessor.writeMetadata(ConfigurationMetadataAnnotationProcessor.java:373)
 	at org.springframework.boot.configurationprocessor.ConfigurationMetadataAnnotationProcessor.process(ConfigurationMetadataAnnotationProcessor.java:199)
 	... 27 more
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-10 17:14:15.823
+!MESSAGE Classpath changed for project: UnitTest
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2025-02-10 17:14:15.825
+!MESSAGE Cannot invoke "org.eclipse.jdt.core.IClasspathEntry.getPath()" because the return value of "org.springframework.tooling.jdt.ls.commons.classpath.ClasspathUtil.getJreContainer(org.eclipse.jdt.core.IClasspathEntry[])" is null
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.jdt.core.IClasspathEntry.getPath()" because the return value of "org.springframework.tooling.jdt.ls.commons.classpath.ClasspathUtil.getJreContainer(org.eclipse.jdt.core.IClasspathEntry[])" is null
+	at org.springframework.tooling.jdt.ls.commons.classpath.ClasspathUtil.resolve(ClasspathUtil.java:98)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:130)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-10 17:14:16.066
+!MESSAGE Classpath changed for project: UnitTest
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-10 17:14:16.066
+!MESSAGE Boot project ADDED: UnitTest
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-10 17:14:16.203
+!MESSAGE Classpath changed for project: UnitTest
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-10 17:14:26.026
+!MESSAGE Classpath changed for project: UnitTest
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-10 17:22:36.362
+!MESSAGE Classpath changed for project: UnitTest
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-02-10 17:36:56.882
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:66)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)

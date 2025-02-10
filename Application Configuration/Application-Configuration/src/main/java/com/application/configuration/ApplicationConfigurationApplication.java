@@ -22,7 +22,7 @@ public class ApplicationConfigurationApplication {
 class AppInitailizer implements CommandLineRunner
 {
 
-	@Value("${app.version}")
+	@Value("{app.version}")
 	private String appVersion;
 	
 	@Autowired
