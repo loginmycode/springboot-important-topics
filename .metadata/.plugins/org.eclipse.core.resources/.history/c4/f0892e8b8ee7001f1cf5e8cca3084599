@@ -1,0 +1,101 @@
+package com.application.configuration;
+
+import java.nio.channels.AcceptPendingException;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.validation.annotation.Validated;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import lombok.Getter;
+import lombok.Setter;
+
+
+@ConfigurationProperties(prefix = "app")
+@Validated
+public class ApplicationProperties {
+
+	private String version;
+	private FtpProperties ftp= new FtpProperties();
+	
+	public void setVersion(String version)
+	{
+		this.version=version;
+	}
+	
+	public String getVersion()
+	{
+		return version;
+	}
+	
+	
+	
+	public FtpProperties getFtp() {
+		return ftp;
+	}
+
+	public void setFtp(FtpProperties ftp) {
+		this.ftp = ftp;
+	}
+
+
+	
+
+	@Override
+	public String toString() {
+		return "ApplicationProperties [version=" + version + ", ftp=" + ftp + "]";
+	}
+
+
+
+
+	public static class FtpProperties{
+		
+		@NotBlank
+		private String host;
+		
+		@Positive(message = "Port must be a positive number")
+		private int port;
+		@NotBlank
+		private String username;
+		@NotBlank
+		private String password;
+		
+		
+		@Override
+		public String toString() {
+			return "FtpProperties [host=" + host + ", port=" + port + ", username=" + username + ", password="
+					+ password + "]";
+		}
+		
+		
+		public String getHost() {
+			return host;
+		}
+		public void setHost(String host) {
+			this.host = host;
+		}
+		public int getPort() {
+			return port;
+		}
+		public void setPort(int port) {
+			this.port = port;
+		}
+		public String getUsername() {
+			return username;
+		}
+		public void setUsername(String username) {
+			this.username = username;
+		}
+		public String getPassword() {
+			return password;
+		}
+		public void setPassword(String password) {
+			this.password = password;
+		}
+		
+		
+	}
+}
+

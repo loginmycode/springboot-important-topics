@@ -1,0 +1,109 @@
+package com.application.configuration;
+
+import java.nio.channels.AcceptPendingException;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.bind.ConstructorBinding;
+import org.springframework.validation.annotation.Validated;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+
+
+
+@ConfigurationProperties(prefix = "app")
+@Validated
+
+public class ApplicationProperties {
+
+	private final String version;
+	private final  FtpProperties ftp;
+	
+	
+	
+	
+	public ApplicationProperties(String version, FtpProperties ftp) {
+		super();
+		this.version = version;
+		this.ftp = ftp;
+	}
+
+
+
+	public String getVersion()
+	{
+		return version;
+	}
+	
+	
+	
+	public FtpProperties getFtp() {
+		return ftp;
+	}
+
+	
+
+	
+
+	@Override
+	public String toString() {
+		return "ApplicationProperties [version=" + version + ", ftp=" + ftp + "]";
+	}
+
+
+
+
+	@Validated
+	public static class FtpProperties{
+		
+		@NotBlank
+		private final String host;
+		
+		@Positive(message = "Port must be a positive number")
+		private final int port;
+		@NotBlank
+		private final  String username;
+		@NotBlank
+		private final String password;
+		
+		
+		
+		public FtpProperties(@NotBlank String host, @Positive(message = "Port must be a positive number") int port,
+				@NotBlank String username, @NotBlank String password) {
+			super();
+			this.host = host;
+			this.port = port;
+			this.username = username;
+			this.password = password;
+		}
+
+
+		@Override
+		public String toString() {
+			return "FtpProperties [host=" + host + ", port=" + port + ", username=" + username + ", password="
+					+ password + "]";
+		}
+		
+		
+		public String getHost() {
+			return host;
+		}
+		
+		public int getPort() {
+			return port;
+		}
+		
+		public String getUsername() {
+			return username;
+		}
+		
+		public String getPassword() {
+			return password;
+		}
+		
+		
+		
+	}
+}
+

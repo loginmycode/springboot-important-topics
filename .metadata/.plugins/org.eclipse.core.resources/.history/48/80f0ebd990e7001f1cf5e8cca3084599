@@ -1,0 +1,6 @@
+spring.application.name=Application-Configuration
+app.version=1.0.1
+app.ftp.host=myftphost.com
+app.ftp.port=50
+app.ftp.username=''
+app.ftp.password=secret

@@ -1,0 +1,77 @@
+package com.application.configuration;
+
+import java.nio.channels.AcceptPendingException;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.bind.ConstructorBinding;
+import org.springframework.validation.annotation.Validated;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+
+
+
+@ConfigurationProperties(prefix = "app")
+@Validated
+
+public class ApplicationProperties {
+
+	private final String version;
+	private final  FtpProperties ftp;
+	
+	
+	
+	
+	public ApplicationProperties(String version, FtpProperties ftp) {
+		super();
+		this.version = version;
+		this.ftp = ftp;
+	}
+
+
+
+	public String getVersion()
+	{
+		return version;
+	}
+	
+	
+	
+	public FtpProperties getFtp() {
+		return ftp;
+	}
+
+	
+
+	
+
+	@Override
+	public String toString() {
+		return "ApplicationProperties [version=" + version + ", ftp=" + ftp + "]";
+	}
+
+
+
+
+		public record  FtpProperties(
+				@NotBlank String host,
+				@NotBlank int port,
+				@NotBlank String username,
+				@NotBlank String password)
+			{
+			
+			}
+				
+			
+			
+			
+		
+		
+		
+		
+		
+		
+	
+}
+

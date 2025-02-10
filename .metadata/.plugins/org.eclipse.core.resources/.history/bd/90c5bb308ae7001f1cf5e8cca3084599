@@ -1,0 +1,37 @@
+package com.application.configuration;
+
+import java.nio.channels.AcceptPendingException;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import lombok.Getter;
+import lombok.Setter;
+
+
+@ConfigurationProperties(prefix = "app")
+public class ApplicationProperties {
+
+	private String version;
+	private FtpProperties ftp= new FtpProperties();
+	
+	public void setVersion(String version)
+	{
+		this.version=version;
+	}
+	
+	public String getVersion()
+	{
+		return version;
+	}
+	
+	public static class FtpProperties{
+		
+		private String host;
+		private int port;
+		private String username;
+		private String password;
+		
+		
+	}
+}
+
